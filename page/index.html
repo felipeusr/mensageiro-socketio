@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Mensageiro!</h1>
+        <input type="text" id="input">
+        <button onclick="enviar()">Enviar</button>
+        <div id="container"></div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io();
+            var input;
+            function enviar() {
+                input = document.querySelector("#input").value;
+                socket.emit("msg", input);
+            }
+            socket.on("msg", (msg) => {
+                document.querySelector("#container").innerHTML += `<p>${msg}</p>`;
+            });
+        </script>
+    </body>
+</html>
