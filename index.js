@@ -19,6 +19,6 @@ io.on("connection", (socket) => {
     });
 });
 
-http.listen(3001, "192.168.1.68", () => {
+http.listen(3001, "000.000.0.00", () => {
     console.log("Servidor do Mensageiro está no ar!");
 });
